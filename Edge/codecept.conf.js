@@ -10,7 +10,8 @@ exports.config = {
   helpers: {
     WebDriver: {
       url: 'https://hotel.testplanisphere.dev/ja/',
-      browser: 'MicrosoftEdge'
+      browser: 'MicrosoftEdge',
+      windowSize: 'maximize'
     },
               "ChaiWrapper" : {
                      "require": "codeceptjs-chai"

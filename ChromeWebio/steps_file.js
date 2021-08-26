@@ -110,10 +110,10 @@ module.exports = function() {
             this.see(headText);
         },
 
-        fillBirthday: function(locator, birthday){
-        this.executeScript(function() {
+        fillBirthday: function(birth){
+        this.executeScript(function(birth) {
           // now we are inside browser context
-          $('birthday').datetimepicker('setDate', '1960-12-11');
+          $(birthday).val(birth);
         });
         },
 

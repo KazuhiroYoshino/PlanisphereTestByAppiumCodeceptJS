@@ -10,7 +10,8 @@ exports.config = {
   helpers: {
     WebDriver: {
       url: 'https://hotel.testplanisphere.dev/ja/',
-      browser: 'firefox'
+      browser: 'firefox',
+      windowSize: 'maximize'
     },
               "ChaiWrapper" : {
                      "require": "codeceptjs-chai"

@@ -1,8 +1,8 @@
 let reserveTestTable = new DataTable(['メルアド', 'パスワード', '氏名', 'ランク', '住所', '電話', '性別', '生年月日', 'お知らせ']);
-reserveTestTable.add(['harunobu@example.jp','password','武田晴信','プレミアム会員','兵庫県加古川市','01234567890','男性','1960-12-11','受け取る']);
+reserveTestTable.add(['harunobu@example.jp','password','武田晴信','プレミアム会員','兵庫県加古川市','01234567890','男性',"1960-12-11",'受け取る']);
 reserveTestTable.add(['kagetora@example.jp','pass1234','長尾景虎','一般会員','','','女性','','受け取らない']);
 reserveTestTable.add(['masatora@example.jp','pass5678','真田昌虎','一般会員','兵庫県加古川市','01234567890','その他','','受け取る']);
-reserveTestTable.add(['aiko@example.jp','passpass','直江愛子','一般会員','兵庫県加古川市','01234567890','回答しない','1960-12-11','受け取らない']);
+reserveTestTable.add(['aiko@example.jp','passpass','直江愛子','一般会員','兵庫県加古川市','01234567890','回答しない',"1960-12-11",'受け取らない']);
 
 Feature('会員登録機能_By_Chrome');
 
@@ -39,12 +39,13 @@ Data(reserveTestTable).Scenario('会員登録_ログイン_Planメニュー確�
         I.selectOption('gender', '回答しない');
     }
     if((current.生年月日).length != 0){
-         birth = current.生年月日;
-        I.executeScript(function(birth) {
+        var birth = current.生年月日;
+        let birthday = await I.executeScript(function(birth) {
 //            var bDay = birth;
             var bDay = '1960-12-11';
-            $(birthday).val(bDay);
-        });
+            return $(birthday).val(bDay);
+        }, '#birthday');
+//        I.fillBirthday(birth);
     }
     if(current.お知らせ == '受け取る'){
         I.checkOption('notification');

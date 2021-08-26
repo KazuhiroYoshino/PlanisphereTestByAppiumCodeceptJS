@@ -42,7 +42,7 @@ Data(reserveTestTable).Scenario('会員登録_ログイン_Planメニュー確�
         I.selectOption('gender', '回答しない');
     }
     if((current.生年月日).length != 0){
-         birth = current.生年月日;
+        let birth = current.生年月日;
         I.executeScript(function(birth) {
 //            var bDay = birth;
             var bDay = '1960-12-11';
